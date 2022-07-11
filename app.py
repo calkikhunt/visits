@@ -1,6 +1,6 @@
-import docker
+# import docker
 import redis
-import socket
+# import socket
 
 from flask import Flask
 
@@ -19,9 +19,9 @@ r.set("visitors", 0)
 
 @app.route("/")
 def index():
-    client = docker.DockerClient(base_url='unix://var/run/docker.sock')
-    container = client.containers.get(socket.gethostname())
-    container.stop()
+    # client = docker.DockerClient(base_url='unix://var/run/docker.sock')
+    # container = client.containers.get(socket.gethostname())
+    # container.stop()
     r.set("visitors", int(r.get("visitors")) + 1)
     return "No of visitors: " + r.get("visitors")
 
